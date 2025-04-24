@@ -22,7 +22,7 @@ docker images -a -q |xargs docker rmi -f
 ```
 # 将修改过的docker容器提交成镜像
 ```
-docker -p commit <ContainerID> [REPOSITORY[:TAG]]
+docker commit -p <ContainerID> [REPOSITORY[:TAG]]
 
 ```
 # 打标签
@@ -54,7 +54,7 @@ docker exec -it <ContainerID> /bin/bash
 # 简易使用 Docker
 ```
 docker pull ubuntu:latest
-docker run  -v "$HOME/Downloads:/home/Downloads" --privileged=true --name ubuntu -itd ubuntu:latest
+docker run --rm  -v "$HOME/Downloads:/home/Downloads" --privileged=true --name ubuntu -itd ubuntu:latest
 
 docker ps -a
 docker stop ubuntu
